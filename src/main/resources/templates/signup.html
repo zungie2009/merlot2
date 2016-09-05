@@ -1,0 +1,96 @@
+<html layout:decorator="layout">
+
+<div class="container-fluid" layout:fragment="content"
+	style="margin-top: 35px">
+	<form action="/signon" method="post">
+		<input type="hidden" name="id" th:value="${editmember.id}" />
+		<h4 class="wizardInstruction">Thank you for your interest in
+			becoming a member.</h4>
+		<table width="800" cellspacing="3" cellpadding="3">
+			<tr>
+				<td width="50%">*First name:</td>
+				<td width="50%"><input type="text"
+					name="member.merlotUserDetails.firstName" class="input wizarddata"
+					maxlength="50" aria-required="true" th:value="${editmember.first_name}" tabindex="1"
+					id="newFirstName" /></td>
+			</tr>
+
+			<tr>
+				<td>*Last name:</td>
+				<td><input type="text" name="member.merlotUserDetails.lastName"
+					class="input wizarddata" aria-required="true" maxlength="255"
+					th:value="${editmember.last_name}" tabindex="2" id="lastName" /></td>
+			</tr>
+
+			<tr>
+				<td>*Email:</td>
+				<td><input type="email" pattern="[^ @]*@[^ @]*"
+					name="member.merlotUserDetails.email" class="input wizarddata"
+					maxlength="255" aria-required="true" th:value="${editmember.email}" tabindex="3"
+					id="useremail" /></td>
+			</tr>
+
+			<tr>
+				<td>*User Name:</td>
+				<td><input type="text" name="member.merlotUserDetails.userName"
+					class="input wizarddata" aria-required="true" maxlength="255"
+					th:value="${editmember.username}" tabindex="4" id="userName" /></td>
+			</tr>
+
+			<tr>
+				<td>*Password:</td>
+				<td><input type="password"
+					name="member.merlotUserDetails.password" class="input wizarddata"
+					maxlength="255" aria-required="true" value="" tabindex="5"
+					id="userpassword" /></td>
+			</tr>
+
+			<tr>
+				<td>*Display Email to other MERLOT members?:</td>
+				<td><input type="hidden" name="_member.displayEmail" /> <input
+					type="checkbox" name="member.displayEmail" value="true"
+					checked="true" tabindex="6" id="displayEmail"></input></td>
+			</tr>
+
+			<tr>
+				<td>Job Title:</td>
+				<td><input type="text" name="member.title"
+					class="input wizarddata" aria-required="true" maxlength="50"
+					th:value="${editmember.job_title}" tabindex="7" id="title" /></td>
+			</tr>
+
+			<tr>
+				<td>*Member Type:</td>
+				<td><select name="member.memberType" class="wizarddata"
+					tabindex="8" aria-required="true"
+					onChange="javascript:showOther(this,'otherMemberType_div')"
+					id="membertype">
+						<option value="">Select...</option>
+						<option th:each="memberType:${memberTypes}"
+							th:object="${memberType}" th:value="*{type}" th:text="*{type}"></option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>Please specify:</td>
+				<td><input id="otherMemberType" type="text"
+					name="otherMemberType" maxlength="128" value="" class="wizarddata"
+					tabindex="9" /></td>
+			</tr>
+
+			<tr>
+				<td>Do you want to be involved as a reviewer of materials in
+					your discipline?</td>
+				<td><input type="checkbox" id="wantToReview"
+					name="wantToReview" value="true" tabindex="10" /></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td><input type="submit" name="submit" value="Submit" /></td>
+			</tr>
+
+		</table>
+	</form>
+</div>
+</html>

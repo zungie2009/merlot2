@@ -1,0 +1,75 @@
+<html layout:decorator="layout">
+
+<div class="container-fluid" layout:fragment="content"
+	style="margin-top: 40px">
+	<div th:if="${material}">
+		<table width="640" cellspacing="1" cellpadding="1">
+			<form action="/saveMaterial" method="post">
+				<input type="hidden" name="id" th:value="${material.id}" />
+				<tbody>
+					<tr>
+						<td>Title</td>
+						<td><input type="text" name="title" size="70"
+							th:value="${material.title}" /></td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td><input type="text" name="description" size="70"
+							th:value="${material.description}" /></td>
+					</tr>
+					<tr>
+						<td>Category</td>
+						<td><input type="text" name="category" size="70"
+							th:value="${material.category}" /></td>
+					</tr>
+					<tr>
+						<td>Author</td>
+						<td><input type="text" name="author" size="70"
+							th:value="${material.author}" /></td>
+					</tr>
+					<tr>
+						<td>URL</td>
+						<td><input type="text" name="url" size="70" th:value="${material.url}" /></td>
+					</tr>
+					<tr>
+						<td>ISBN</td>
+						<td><input type="text" name="isbn" size="70"
+							th:value="${material.isbn}" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="Submit" /></td>
+					</tr>
+				</tbody>
+			</form>
+		</table>
+	</div>
+	<div style="margin-top: 15px;">
+		<table width="800" cellspacing="1" cellpadding="1">
+			<thead>
+				<tr style="background-color: #eee;">
+				<th>ID</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Author</th>
+				<th>Category</th>
+				<th>URL</th>
+				<th>ISBN</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="m:${materials}" th:object="${m}">
+					<tr>
+						<td><a th:text="*{id}" th:href="'/edit/' + *{id}"></a></td>
+						<td th:text="*{title}"></td>
+						<td th:text="*{description}"></td>
+						<td th:text="*{author}"></td>
+						<td th:text="*{category}"></td>
+						<td th:text="*{url}"></td>
+						<td th:text="*{isbn}"></td>
+					</tr>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</html>

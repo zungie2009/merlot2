@@ -1,0 +1,46 @@
+<html layout:decorator="layout">
+
+<div layout:fragment="content">
+
+	<div class="container-fluid" style="margin-top: 44px">
+
+		<form role="form" action="/login" method="post">
+
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+			<table width="640" cellspacing="2" cellpadding="2">
+				<tr>
+					<td width="30%">User Name</td>
+					<td width="70%"><input type="text" name="username" id="username"
+						required="true" autofocus="true" tabindex="1" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password" id="password"
+						required="true" tabindex="2" /></td>
+				</tr>
+				<tr>
+					<td>Remember me</td>
+					<td><input type="checkbox" name="remember-me" id="remember-me" tabindex="3" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button type="submit">Sign in</button></td>
+				</tr>
+
+				<tr th:if="${error}">
+					<td colspan="2">The username or password you have entered is
+						invalid, try again.</td>
+				</tr>
+				<tr>
+					<td colspan="2"><a href="/signup" tabindex="0"> Become a
+							Member today!<br />Membership is FREE
+					</a></td>
+				</tr>
+
+			</table>
+		</form>
+		
+	</div>
+</div>
+</html>

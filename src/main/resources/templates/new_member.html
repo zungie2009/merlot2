@@ -1,0 +1,36 @@
+<html layout:decorator="layout">
+
+<div class="container-fluid" layout:fragment="content">
+
+	<h2 class="wizardInstruction">Thank you for your interest in
+		becoming a member.</h2>
+
+	<br> <br>
+
+
+	<div class="wizarddiv">
+		<label for="newFirstName" class="wizardlabel"> <a
+			href="javascript:void(0)" class="tooltiplabel" id="ttlabel_firstName"
+			title='Enter your first name for your MERLOT account in this field. It will be displayed on your MERLOT profile page.'
+			tabindex="-1"> *First name: </a>
+		</label> <input type="text" name="member.merlotUserDetails.firstName"
+			class="input wizarddata" maxlength="50" aria-required="true" value=""
+			tabindex="0" id="newFirstName" /> <span id="error_newFirstName"
+			class="wizardFieldError fieldError" role="alert"> </span>
+
+	</div>
+	<div class="wizarddiv">
+		<label for="lastName" class="wizardlabel"> <a
+			href="javascript:void(0)" class="tooltiplabel" id="ttlabel_lastName"
+			title='Enter your last name for your MERLOT account in this field. It will be displayed on your MERLOT profile page.'
+			tabindex="-1"> *Last name: </a>
+		</label> <input type="text" name="member.merlotUserDetails.lastName"
+			class="input wizarddata" aria-required="true" maxlength="255"
+			value="" tabindex="0" id="lastName" /> <span id="error_lastName"
+			class="wizardFieldError fieldError" role="alert"> </span>
+
+	</div>
+	
+	
+</div>
+</html>

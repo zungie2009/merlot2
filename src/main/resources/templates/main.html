@@ -1,0 +1,29 @@
+<html layout:decorator="layout">
+
+<div layout:fragment="content">
+<style type="text/css">
+
+div#myDiv > a {
+	text-decoration: none;
+	transition: background 0.5s linear 0s, color 0.5s linear 0s;
+}
+
+div#myDiv > a:hover {
+	background: wheat;
+	color: #eee;
+}
+	
+</style>
+
+	<div class="container-fluid" style="margin-top: 40px">
+		<ul>
+			<li><a href="edit">Submit Material</a></li>
+			<!--  
+			<li>Search Materials by ISBN</li>
+			-->
+		</ul>
+	</div>
+	
+</div>
+
+</html>

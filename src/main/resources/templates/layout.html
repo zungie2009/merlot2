@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<base href="/" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+<script src="js/jquery.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="css/animate.min.css" />
+<script src="js/bootstrap.min.js"></script>
+<!--  
+<script src="merlot/js/jquery.min.js"></script>
+<link rel="stylesheet" href="merlot/css/bootstrap.min.css" />
+<link rel="stylesheet" href="merlot/css/bootstrap-theme.min.css" />
+<script src="merlot/js/bootstrap.min.js"></script>
+-->
+
+<title>Merlot II</title>
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Merlot II</a>
+					<button class="navbar-toggle" type="button" data-toggle="collapse"
+						data-target="#navbar-main">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse navbar-right" id="navbar-main">
+					<ul class="nav navbar-nav">
+						<li th:if="${member}"><a th:href="'/member_edit/' + ${member.id}" th:text="'Welcome ' + ${member.first_name} + ' ' + ${member.last_name}"></a></li>
+						<li><a href="/login">Log In/Sign Up</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div>
+			&nbsp;<br />
+		</div>
+
+		<div class="container-fluid" layout:fragment="content"></div>
+	</div>
+</body>
+</html>
